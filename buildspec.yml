@@ -1,0 +1,10 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - echo Entered the install phase...
+      - git clone https://github.com/hub714/kejishoes.club.git
+      - cd kejishoes.club/
+      - aws s3 sync images s3://www.kejishoes.club/images --acl public-read
+      - aws s3 cp index.html s3://www.kejishoes.club/index.html --acl public-read
